@@ -27,7 +27,7 @@ public class ServerCommands {
         min = 0,
         max = 1
     )
-    public void serverlist(final CommandContext args, CommandSender sender) throws CommandException {
+    public static void serverlist(final CommandContext args, CommandSender sender) throws CommandException {
         final Set<ServerInfo> servers = ImmutableSortedSet.copyOf(BungeeCord.getInstance().getServers().values());
 
         new SimplePaginatedResult<ServerInfo>("BungeeCord Servers") {
@@ -45,7 +45,7 @@ public class ServerCommands {
         min = 2,
         max = 4
     )
-    public void addserver(final CommandContext args, CommandSender sender) throws CommandException {
+    public static void addserver(final CommandContext args, CommandSender sender) throws CommandException {
         String name = args.getString(1);
         String address = args.getString(2);
         int port = args.getInteger(3);
@@ -64,7 +64,7 @@ public class ServerCommands {
         min = 1,
         max = 1
     )
-    public void delserver(final CommandContext args, CommandSender sender) throws CommandException {
+    public static void delserver(final CommandContext args, CommandSender sender) throws CommandException {
         String name = args.getString(1);
 
         ProxyServer.getInstance().getServers().remove(name);
