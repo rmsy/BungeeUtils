@@ -31,7 +31,7 @@ public class ServerCommands {
 
         new SimplePaginatedResult<ServerInfo>("BungeeCord Servers") {
             @Override public String format(ServerInfo server, int index) {
-                return (index + 1) + ". " + server.getName();
+                return (index + 1) + ". " + ChatColor.RED + server.getName() + ChatColor.GREEN + server.getAddress().getHostString() + ":" + server.getAddress().getPort();
             }
         }.display(new BungeeWrappedCommandSender(sender), servers, args.getInteger(0, 1) /* page */);
     }
