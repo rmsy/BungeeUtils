@@ -13,6 +13,7 @@ import com.sk89q.minecraft.util.commands.ChatColor;
 import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
 import com.sk89q.minecraft.util.commands.CommandException;
+import com.sk89q.minecraft.util.commands.CommandPermissions;
 import com.sk89q.minecraft.util.pagination.SimplePaginatedResult;
 
 public class ServerCommands {
