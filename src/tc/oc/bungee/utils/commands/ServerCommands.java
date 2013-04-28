@@ -26,6 +26,7 @@ public class ServerCommands {
         min = 0,
         max = 1
     )
+    @CommandPermissions("bungeeutils.serverlist")
     public static void serverlist(final CommandContext args, CommandSender sender) throws CommandException {
         final Collection<ServerInfo> servers = BungeeCord.getInstance().getServers().values();
 
@@ -44,6 +45,7 @@ public class ServerCommands {
         min = 2,
         max = 4
     )
+    @CommandPermissions("bungeeutils.addserver")
     public static void addserver(final CommandContext args, CommandSender sender) throws CommandException {
         String name = args.getString(0);
         String address = args.getString(1);
@@ -63,6 +65,7 @@ public class ServerCommands {
         min = 1,
         max = 1
     )
+    @CommandPermissions("bungeeutils.delserver")
     public static void delserver(final CommandContext args, CommandSender sender) throws CommandException {
         String name = args.getString(0);
 
