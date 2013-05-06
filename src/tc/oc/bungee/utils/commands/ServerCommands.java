@@ -70,8 +70,10 @@ public class ServerCommands {
     public static void delserver(final CommandContext args, CommandSender sender) throws CommandException {
         String name = args.getString(0);
 
-        ProxyServer.getInstance().getServers().remove(name);
-
-        sender.sendMessage(ChatColor.GREEN + "Removed server " + ChatColor.GOLD + name);
+        if (ProxyServer.getInstance().getServers().remove(name) == null) {
+            sender.sendMessage(ChatColor.RED + "Could not find server " + ChatColor.GOLD + name);
+        } else {
+            sender.sendMessage(ChatColor.GREEN + "Removed server " + ChatColor.GOLD + name);
+        }
     }
 }
