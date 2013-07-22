@@ -8,6 +8,11 @@
     <url>oc.tc</url>
     <description>Utilities for interacting with BungeeCord</description>
 
+    <properties>
+        <!-- Plugin properties -->
+        <plugin.mainClass>tc.oc.bungee.utils.BungeeUtils</plugin.mainClass>
+    </properties>
+
     <!-- Repository Locations -->
     <repositories>
         <repository>
