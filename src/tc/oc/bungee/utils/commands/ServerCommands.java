@@ -7,17 +7,29 @@ import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.config.ServerInfo;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
 
 import com.sk89q.bungee.util.BungeeWrappedCommandSender;
-import com.sk89q.minecraft.util.commands.ChatColor;
-import com.sk89q.minecraft.util.commands.Command;
-import com.sk89q.minecraft.util.commands.CommandContext;
-import com.sk89q.minecraft.util.commands.CommandException;
-import com.sk89q.minecraft.util.commands.CommandPermissions;
+import com.sk89q.minecraft.util.commands.*;
 import com.sk89q.minecraft.util.pagination.SimplePaginatedResult;
 
 public class ServerCommands {
     public ServerCommands() {
+    }
+
+    @Command(
+        aliases = {"hub", "lobby", "main"},
+        desc= "Teleport to the lobby",
+        min = 0,
+        max = 0
+    )
+    public static void hub(final CommandContext args, CommandSender sender) throws CommandException {
+        if(sender instanceof ProxiedPlayer) {
+            ((ProxiedPlayer) sender).connect(ProxyServer.getInstance().getServers().get("default"));
+            sender.sendMessage(ChatColor.GREEN + "Teleporting you to the lobby...");
+        } else {
+            sender.sendMessage(ChatColor.RED + "Only players may use this command");
+        }
     }
 
     @Command(
