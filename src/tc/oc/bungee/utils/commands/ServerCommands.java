@@ -53,7 +53,7 @@ public class ServerCommands {
         int port = args.argsLength() > 2 ? args.getInteger(2) : 25565;
         boolean restricted = args.hasFlag('r');
 
-        ServerInfo serverInfo = ProxyServer.getInstance().constructServerInfo(name, new InetSocketAddress(address, port), restricted);
+        ServerInfo serverInfo = ProxyServer.getInstance().constructServerInfo(name, new InetSocketAddress(address, port), "", restricted);
         ProxyServer.getInstance().getServers().put(name, serverInfo);
 
         sender.sendMessage(ChatColor.GREEN + "Added server " + ChatColor.GOLD + name);
